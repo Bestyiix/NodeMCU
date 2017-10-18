@@ -1,6 +1,8 @@
 <?php
 $access_token = 'NAekpw2PvpewrFKX38GXYA4soepOM+wNzujSvvh3QDiiDyGEm8RnU+gytDh4CuYDLAH4G7E1I+lzANS+UB+Y4P2uEnZyJW/GW2F35hjIDGlS9KnMxlxEFD0TEGbB30xorS+GijIOadGhWbODQlz+rAdB04t89/1O/w1cDnyilFU=';
 
+// Get Chat 
+$Chat;
 // Get POST body content
 $content = file_get_contents('php://input');
 // Parse JSON
@@ -29,7 +31,7 @@ if (!is_null($events['events'])) {
 				'messages' => [$messages],
 			];
 			$post = json_encode($data);
-			echo $post . "\r\n";
+			$Chat = $post;
 			$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
 
 			$ch = curl_init($url);
@@ -46,4 +48,6 @@ if (!is_null($events['events'])) {
 		}
 	}
 }
+echo $Chat;
+echo "\n";
 echo "OK";
