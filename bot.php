@@ -44,5 +44,6 @@ if (!is_null($events['events'])) {
 		}
 	}
 }
-echo [$messages];
+echo $result "\n";
+echo [$messages] "\n";
 echo "OK";
