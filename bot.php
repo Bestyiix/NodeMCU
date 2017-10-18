@@ -41,12 +41,14 @@ if (!is_null($events['events'])) {
 			curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 			curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
 			$result = curl_exec($ch);
+			
+			echo $Chat;
+			echo "\n";
+			echo "OK";
 			curl_close($ch);
 
-			echo $result . "\r\n";
+			//echo $result . "\r\n";
 		}
 	}
 }
-echo $Chat;
-echo "\n";
-echo "OK";
+
