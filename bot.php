@@ -4,8 +4,10 @@ $access_token = 'NAekpw2PvpewrFKX38GXYA4soepOM+wNzujSvvh3QDiiDyGEm8RnU+gytDh4CuY
 $Chat = "Unknow";
 // Get POST body content
 $content = file_get_contents('php://input');
+$Chat = $content;
 // Parse JSON
 $events = json_decode($content, true);
+$Chat = $events;
 // Validate parsed JSON data
 if (!is_null($events['events'])) {
 	// Loop through each event
@@ -42,13 +44,12 @@ if (!is_null($events['events'])) {
 			curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
 			$result = curl_exec($ch);
 			
-			echo $Chat;
-			echo "\n";
-			echo "OK";
 			curl_close($ch);
 
 			//echo $result . "\r\n";
 		}
 	}
 }
-
+echo $Chat;
+echo "\n";
+echo "OK";
