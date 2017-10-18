@@ -5,12 +5,9 @@ $access_token = 'NAekpw2PvpewrFKX38GXYA4soepOM+wNzujSvvh3QDiiDyGEm8RnU+gytDh4CuY
 $Chat = "Unknow";
 // Get POST body content
 $content = file_get_contents('php://input');
-
-$Chat = $content;
 // Parse JSON
 $events = json_decode($content, true);
 // Validate parsed JSON data
-$Chat = $events;
 if (!is_null($events['events'])) {
 	// Loop through each event
 	foreach ($events['events'] as $event) {
@@ -18,6 +15,8 @@ if (!is_null($events['events'])) {
 		if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
 			// Get text sent
 			$text = $event['message']['text'];
+			$Chat = $event['message']['text'];
+
 			// Get replyToken
 			$replyToken = $event['replyToken'];
 
@@ -44,9 +43,7 @@ if (!is_null($events['events'])) {
 			curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 			curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
 			
-			$Chat = $text;
-			$Chat = $messages;
-			$Chat = $ch;
+			
 			
 			$result = curl_exec($ch);
 			curl_close($ch);
